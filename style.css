@@ -249,6 +249,7 @@ select,
 textarea,
 .primary-button {
   width: 100%;
+  min-width: 0;
   border-radius: 18px;
   font: inherit;
 }
@@ -262,6 +263,12 @@ textarea {
   color: var(--ink);
   outline: none;
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+input[type="date"],
+input[type="time"] {
+  min-height: 52px;
+  line-height: 1.2;
 }
 
 input:focus,
@@ -621,6 +628,10 @@ textarea {
     gap: 12px;
   }
 
+  .birth-grid {
+    gap: 10px;
+  }
+
   .panel-head {
     margin-bottom: 14px;
   }
@@ -644,6 +655,12 @@ textarea {
   textarea {
     padding: 13px 14px;
     border-radius: 16px;
+  }
+
+  #birthDate,
+  #birthTime {
+    min-height: 54px;
+    font-size: 16px;
   }
 
   .primary-button {
@@ -741,6 +758,29 @@ textarea {
   .contact-copy {
     margin-top: 14px;
     font-size: 0.9rem;
+  }
+
+  .birth-grid {
+    gap: 8px;
+  }
+
+  .birth-grid label {
+    gap: 5px;
+    font-size: 0.88rem;
+  }
+
+  #birthDate,
+  #birthTime {
+    padding: 12px;
+    border-radius: 14px;
+    min-height: 52px;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  #birthDate::-webkit-date-and-time-value,
+  #birthTime::-webkit-date-and-time-value {
+    text-align: left;
   }
 
   .theme-toggle,

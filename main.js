@@ -327,6 +327,32 @@ const analysis = document.querySelector("#analysis");
 const recommendations = document.querySelector("#recommendations");
 const hanjaPanel = document.querySelector("#hanjaPanel");
 const form = document.querySelector("#naming-form");
+const themeToggle = document.querySelector("#theme-toggle");
+
+const THEME_STORAGE_KEY = "name-atelier-theme";
+
+function applyTheme(theme) {
+  const nextTheme = theme === "dark" ? "dark" : "light";
+
+  document.documentElement.dataset.theme = nextTheme;
+  themeToggle.textContent = nextTheme === "dark" ? "화이트 모드" : "다크 모드";
+  themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
+}
+
+function initializeTheme() {
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+  applyTheme(initialTheme);
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+  });
+}
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => (
@@ -706,5 +732,6 @@ hanjaPanel.addEventListener("click", (event) => {
   renderHanjaPanel();
 });
 
+initializeTheme();
 setDefaultBirthInputs();
 renderAll(new FormData(form));

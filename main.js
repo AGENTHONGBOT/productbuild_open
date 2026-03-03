@@ -49,6 +49,119 @@ const toneLabels = {
   strong: "단단하고 힘 있는 결",
 };
 
+const religionProfiles = {
+  none: {
+    preferredTemplateTags: ["balance", "warmth", "joy", "clarity"],
+    preferredSyllables: ["온", "하", "윤", "서", "유", "수"],
+    preferredHanjaElements: ["water", "earth"],
+  },
+  christian: {
+    preferredTemplateTags: ["grace", "blessing", "light", "peace", "hope"],
+    preferredSyllables: ["은", "찬", "빛", "온", "하", "주"],
+    preferredHanjaElements: ["fire", "water"],
+  },
+  buddhist: {
+    preferredTemplateTags: ["wisdom", "serenity", "lotus", "compassion", "clarity"],
+    preferredSyllables: ["연", "담", "해", "지", "선", "수"],
+    preferredHanjaElements: ["water", "wood"],
+  },
+  catholic: {
+    preferredTemplateTags: ["grace", "love", "protection", "faith", "peace"],
+    preferredSyllables: ["은", "안", "서", "하", "주", "연"],
+    preferredHanjaElements: ["earth", "water"],
+  },
+  traditional: {
+    preferredTemplateTags: ["balance", "virtue", "dignity", "heritage", "strength"],
+    preferredSyllables: ["도", "지", "호", "선", "율", "규"],
+    preferredHanjaElements: ["earth", "metal"],
+  },
+};
+
+const templateTagMap = {
+  "하-윤": ["light", "blessing", "warmth"],
+  "서-아": ["love", "joy", "warmth"],
+  "유-나": ["warmth", "balance", "compassion"],
+  "연-수": ["clarity", "wisdom", "lotus"],
+  "별-아": ["light", "joy", "hope"],
+  "지-안": ["wisdom", "peace", "balance"],
+  "서-윤": ["grace", "peace", "love"],
+  "하-린": ["clarity", "grace", "light"],
+  "은-서": ["grace", "blessing", "dignity"],
+  "연-지": ["wisdom", "serenity", "grace"],
+  "리-아": ["clarity", "joy", "light"],
+  "이-든": ["balance", "hope", "warmth"],
+  "시-아": ["clarity", "light", "joy"],
+  "주-연": ["love", "grace", "serenity"],
+  "민-아": ["clarity", "warmth", "joy"],
+  "채-원": ["strength", "dignity", "balance"],
+  "다-온": ["blessing", "warmth", "hope"],
+  "윤-슬": ["light", "strength", "clarity"],
+  "민-서": ["virtue", "balance", "grace"],
+  "솔-아": ["strength", "heritage", "light"],
+  "도-윤": ["virtue", "balance", "warmth"],
+  "시-우": ["clarity", "grace", "peace"],
+  "하-준": ["light", "hope", "strength"],
+  "민-준": ["clarity", "virtue", "strength"],
+  "연-우": ["compassion", "joy", "warmth"],
+  "지-호": ["wisdom", "dignity", "strength"],
+  "선-율": ["virtue", "balance", "heritage"],
+  "서-준": ["grace", "dignity", "strength"],
+  "은-호": ["grace", "protection", "dignity"],
+  "주-한": ["faith", "dignity", "strength"],
+  "로-운": ["clarity", "balance", "joy"],
+  "이-안": ["peace", "love", "balance"],
+  "유-찬": ["blessing", "light", "hope"],
+  "규-민": ["heritage", "wisdom", "clarity"],
+  "진-우": ["strength", "clarity", "virtue"],
+  "건-우": ["strength", "protection", "balance"],
+  "태-오": ["strength", "light", "dignity"],
+  "도-현": ["wisdom", "virtue", "strength"],
+  "진-한": ["dignity", "strength", "heritage"],
+  "규-태": ["heritage", "strength", "virtue"],
+  "라-온": ["joy", "blessing", "warmth"],
+  "하-람": ["compassion", "balance", "warmth"],
+  "별-온": ["light", "hope", "peace"],
+  "수-아": ["clarity", "lotus", "joy"],
+  "시-온": ["peace", "faith", "serenity"],
+  "지-율": ["wisdom", "balance", "virtue"],
+  "해-온": ["warmth", "peace", "clarity"],
+  "은-결": ["grace", "clarity", "dignity"],
+  "연-솔": ["lotus", "heritage", "serenity"],
+  "루-아": ["clarity", "joy", "light"],
+  "리-안": ["peace", "balance", "love"],
+  "세-온": ["hope", "peace", "clarity"],
+  "민-결": ["virtue", "clarity", "balance"],
+  "주-빈": ["faith", "grace", "clarity"],
+  "태-린": ["strength", "light", "dignity"],
+  "도-겸": ["virtue", "heritage", "balance"],
+  "하-겸": ["grace", "balance", "virtue"],
+  "솔-담": ["heritage", "serenity", "strength"],
+  "진-결": ["strength", "clarity", "virtue"],
+};
+
+const hanjaTagMap = {
+  grace: ["恩", "은혜", "고울", "우아"],
+  blessing: ["복", "상서", "은혜", "기쁠"],
+  light: ["빛", "햇빛", "밝을", "별", "하늘"],
+  peace: ["편안", "평온", "고요", "안정"],
+  hope: ["기쁠", "좋은 기운", "복", "즐거울"],
+  wisdom: ["지혜", "알", "뜻", "문장"],
+  serenity: ["맑을", "고요", "평온", "온화"],
+  lotus: ["연꽃", "물", "맑을"],
+  compassion: ["너그러울", "도울", "사랑", "자비"],
+  protection: ["도울", "집", "보호", "언덕"],
+  love: ["아름다울", "사랑", "우아", "따뜻할"],
+  faith: ["믿음", "축복", "하늘", "우주"],
+  balance: ["안정", "평온", "조화", "근원"],
+  virtue: ["법도", "길", "겸손", "뜻"],
+  dignity: ["옥", "기품", "으뜸", "하늘"],
+  heritage: ["전통", "길", "법", "별 이름"],
+  strength: ["큰", "넓을", "장수", "준마"],
+  warmth: ["따뜻할", "여름", "햇빛", "온화"],
+  joy: ["기쁠", "밝을", "즐거울"],
+  clarity: ["맑을", "깨끗할", "빛날", "시"],
+};
+
 const nameTemplates = {
   girl: {
     bright: [
@@ -587,10 +700,74 @@ function sortHanjaOptions(options, preferredElements) {
   });
 }
 
+function getTemplateKey(template) {
+  return template.syllables.join("-");
+}
+
+function getTemplateTags(template) {
+  return templateTagMap[getTemplateKey(template)] || [];
+}
+
+function scoreTemplateTags(tags, religion) {
+  const profile = religionProfiles[religion] || religionProfiles.none;
+
+  return tags.reduce(
+    (score, tag, index) => score + (profile.preferredTemplateTags.includes(tag) ? 8 - Math.min(index, 4) : 0),
+    0
+  );
+}
+
+function scoreSyllableAffinity(syllables, religion) {
+  const profile = religionProfiles[religion] || religionProfiles.none;
+
+  return syllables.reduce(
+    (score, syllable) => score + (profile.preferredSyllables.includes(syllable) ? 3 : 0),
+    0
+  );
+}
+
+function scoreHanjaThemes(optionsBySlot, religion) {
+  const profile = religionProfiles[religion] || religionProfiles.none;
+  let score = 0;
+
+  optionsBySlot.forEach((slot) => {
+    const topOption = slot.options[0];
+
+    if (!topOption) return;
+    if (profile.preferredHanjaElements.includes(topOption.element)) {
+      score += 2;
+    }
+
+    profile.preferredTemplateTags.forEach((tag) => {
+      const keywords = hanjaTagMap[tag] || [];
+      const matchesKeyword = keywords.some(
+        (keyword) => topOption.meaning.includes(keyword) || topOption.char.includes(keyword)
+      );
+
+      if (matchesKeyword) {
+        score += 1;
+      }
+    });
+  });
+
+  return score;
+}
+
+function calculateReligionScore(template, displaySyllables, slots, religion) {
+  const templateTags = getTemplateTags(template);
+
+  return (
+    scoreTemplateTags(templateTags, religion) +
+    scoreSyllableAffinity(displaySyllables, religion) +
+    scoreHanjaThemes(slots, religion)
+  );
+}
+
 function buildRecommendations(formData, profile) {
   const gender = formData.get("gender");
   const tone = formData.get("tone");
   const syllables = formData.get("syllables");
+  const religion = formData.get("religion");
   const lastName = formData.get("lastName").trim();
   const wish = formData.get("wish").trim();
 
@@ -606,11 +783,13 @@ function buildRecommendations(formData, profile) {
       syllable,
       options: sortHanjaOptions(hanjaMap[syllable] || [], preferredElements),
     }));
+    const religionScore = calculateReligionScore(template, displaySyllables, slots, religion);
     const selectedOptions = slots.map((slot) => slot.options[0]).filter(Boolean);
     const balanceScore = selectedOptions.reduce(
       (score, option) => score + (option.element === profile.weakestElement ? 2 : option.element === profile.supportElement ? 1 : 0),
       0
     );
+    const totalScore = balanceScore + religionScore;
     const note = wish
       ? `"${wish}"이라는 바람과 ${toneLabels[tone]}을 연결해 ${elementLabels[profile.weakestElement]} 기운을 보완하도록 맞췄습니다.`
       : `${toneLabels[tone]}을 유지하면서 부족한 ${elementLabels[profile.weakestElement]} 기운을 보완하도록 맞췄습니다.`;
@@ -623,9 +802,14 @@ function buildRecommendations(formData, profile) {
       note,
       slots,
       balanceScore,
+      religionScore,
+      totalScore,
       recommendationLabel: index + 1,
     };
-  }).sort((left, right) => right.balanceScore - left.balanceScore);
+  }).sort((left, right) => {
+    if (right.totalScore !== left.totalScore) return right.totalScore - left.totalScore;
+    return right.balanceScore - left.balanceScore;
+  });
 
   const seenNames = new Set();
 

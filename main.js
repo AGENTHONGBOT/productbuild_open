@@ -542,8 +542,9 @@ function applyTheme(theme) {
   const nextTheme = theme === "dark" ? "dark" : "light";
 
   document.documentElement.dataset.theme = nextTheme;
-  themeToggle.textContent = nextTheme === "dark" ? "화이트 모드" : "다크 모드";
   themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
+  themeToggle.setAttribute("aria-label", nextTheme === "dark" ? "화이트 모드로 전환" : "다크 모드로 전환");
+  themeToggle.innerHTML = `<span class="theme-toggle-icon" aria-hidden="true">${nextTheme === "dark" ? "☾" : "☀"}</span>`;
 }
 
 function initializeTheme() {

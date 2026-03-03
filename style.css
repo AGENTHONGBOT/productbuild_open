@@ -45,6 +45,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
   color: var(--ink);
   background:
@@ -157,6 +158,7 @@ body::after {
 .hero h1 {
   max-width: 700px;
   font-size: clamp(2rem, 5vw, 4.2rem);
+  text-wrap: balance;
 }
 
 .hero-copy {
@@ -268,6 +270,7 @@ textarea {
 }
 
 .primary-button {
+  min-height: 54px;
   margin-top: 4px;
   padding: 15px 18px;
   border: 0;
@@ -336,6 +339,7 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .name-row h3 {
@@ -347,6 +351,7 @@ textarea {
 .badge {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   border-radius: 999px;
   padding: 6px 10px;
   background: rgba(185, 111, 62, 0.1);
@@ -456,6 +461,7 @@ textarea {
 
 .hanja-option {
   width: 100%;
+  min-height: 92px;
   padding: 10px 12px;
   text-align: left;
   border-radius: 16px;
@@ -536,20 +542,38 @@ textarea {
 }
 
 @media (max-width: 900px) {
+  .page-shell {
+    width: min(100% - 24px, 100%);
+    padding: 28px 0 44px;
+  }
+
+  .hero {
+    padding: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.85rem, 7vw, 3.1rem);
+  }
+
   .layout {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .hanja-grid,
   .element-meter {
     grid-template-columns: 1fr;
   }
+
+  .contact-panel {
+    margin-top: 16px;
+  }
 }
 
 @media (max-width: 640px) {
   .page-shell {
-    width: min(100% - 18px, 100%);
-    padding-top: 18px;
+    width: min(100% - 16px, 100%);
+    padding: 16px 0 32px;
   }
 
   .hero,
@@ -558,18 +582,180 @@ textarea {
     border-radius: 22px;
   }
 
+  .hero {
+    padding-top: 16px;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    margin-bottom: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.18;
+  }
+
+  .hero-copy,
+  .contact-copy,
+  .summary-card p,
+  .analysis-card p,
+  .hanja-head p,
+  .hanja-preview p,
+  .name-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   .field-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
+  .panel-head {
+    margin-bottom: 14px;
+  }
+
+  .panel-head h2 {
+    font-size: 1.35rem;
+  }
+
+  .naming-form,
+  .contact-form {
+    gap: 12px;
+  }
+
+  label {
+    gap: 6px;
+    font-size: 0.92rem;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 13px 14px;
+    border-radius: 16px;
+  }
+
+  .primary-button {
+    min-height: 52px;
+    padding: 14px 16px;
+    border-radius: 16px;
+  }
+
   .hero-topbar {
     align-items: stretch;
     flex-direction: column;
+    gap: 10px;
   }
 
   .theme-toggle {
     width: 100%;
+    min-height: 48px;
     justify-content: center;
+  }
+
+  .summary-card,
+  .analysis-card,
+  .hanja-panel,
+  .name-card,
+  .hanja-column,
+  .hanja-preview {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .name-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .name-row h3 {
+    font-size: 1.18rem;
+  }
+
+  .badge {
+    padding: 5px 9px;
+    font-size: 0.76rem;
+  }
+
+  .element-pill {
+    padding: 12px 10px;
+  }
+
+  .hanja-panel {
+    gap: 12px;
+  }
+
+  .hanja-option {
+    min-height: 84px;
+    padding: 11px 12px;
+  }
+
+  .hanja-option strong {
+    font-size: 0.96rem;
+  }
+
+  .hanja-option p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .hanja-preview-name {
+    font-size: clamp(1.35rem, 7vw, 1.8rem);
+    word-break: keep-all;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-shell {
+    width: min(100% - 12px, 100%);
+    padding-bottom: 24px;
+  }
+
+  .hero,
+  .panel {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+  }
+
+  .hero-copy,
+  .contact-copy {
+    margin-top: 14px;
+    font-size: 0.9rem;
+  }
+
+  .theme-toggle,
+  .primary-button {
+    font-size: 0.95rem;
+  }
+
+  .summary-card,
+  .analysis-card,
+  .hanja-panel,
+  .name-card,
+  .hanja-column,
+  .hanja-preview,
+  .hanja-detail {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .name-row h3,
+  .summary-card h3,
+  .analysis-card h3,
+  .hanja-head h3,
+  .hanja-preview h3 {
+    font-size: 1.02rem;
+  }
+
+  .hanja-column h4 {
+    font-size: 0.9rem;
   }
 }

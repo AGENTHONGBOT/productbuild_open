@@ -653,12 +653,13 @@ textarea {
   }
 
   .hero-topbar {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
   }
 
   .theme-toggle {
+    margin-left: auto;
     width: 48px;
     min-height: 48px;
   }
@@ -730,6 +731,10 @@ textarea {
 
   .hero h1 {
     font-size: clamp(1.5rem, 9vw, 2rem);
+  }
+
+  .hero-topbar {
+    gap: 10px;
   }
 
   .hero-copy,

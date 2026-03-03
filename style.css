@@ -267,8 +267,30 @@ textarea {
 
 input[type="date"],
 input[type="time"] {
+  width: 100%;
+  max-width: 100%;
   min-height: 52px;
+  padding-right: 12px;
   line-height: 1.2;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-datetime-edit,
+input[type="time"]::-webkit-datetime-edit {
+  padding: 0;
+}
+
+input[type="date"]::-webkit-date-and-time-value,
+input[type="time"]::-webkit-date-and-time-value {
+  min-width: 0;
+  margin: 0;
+  text-align: left;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  margin: 0;
 }
 
 input:focus,
@@ -632,6 +654,11 @@ textarea {
     gap: 10px;
   }
 
+  .birth-grid > label {
+    min-width: 0;
+    overflow: hidden;
+  }
+
   .panel-head {
     margin-bottom: 14px;
   }
@@ -661,6 +688,7 @@ textarea {
   #birthTime {
     min-height: 54px;
     font-size: 16px;
+    padding-right: 10px;
   }
 
   .primary-button {
@@ -774,13 +802,29 @@ textarea {
     padding: 12px;
     border-radius: 14px;
     min-height: 52px;
+    width: 100%;
+    max-width: 100%;
     font-size: 16px;
+    line-height: 1.1;
     letter-spacing: -0.01em;
+  }
+
+  #birthDate::-webkit-datetime-edit,
+  #birthTime::-webkit-datetime-edit {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: 0;
   }
 
   #birthDate::-webkit-date-and-time-value,
   #birthTime::-webkit-date-and-time-value {
+    display: inline-block;
+    max-width: 100%;
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .theme-toggle,

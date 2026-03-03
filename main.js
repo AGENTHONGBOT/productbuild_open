@@ -55,21 +55,29 @@ const nameTemplates = {
       { syllables: ["하", "윤"], meaning: "햇살처럼 환하고 복을 불러오는 인상", focus: ["water", "wood"] },
       { syllables: ["서", "아"], meaning: "다정하고 사랑받는 분위기가 자연스러운 이름", focus: ["wood", "fire"] },
       { syllables: ["유", "나"], meaning: "온화함과 친화력을 함께 담은 이름", focus: ["water", "earth"] },
+      { syllables: ["연", "수"], meaning: "맑은 물결처럼 깨끗하고 반짝이는 이름", focus: ["water", "metal"] },
+      { syllables: ["별", "아"], meaning: "사랑스러운 반짝임이 오래 남는 이름", focus: ["fire", "metal"] },
     ],
     elegant: [
       { syllables: ["지", "안"], meaning: "차분한 기품과 안정감을 살린 이름", focus: ["earth", "metal"] },
       { syllables: ["서", "윤"], meaning: "부드러운 품격과 정돈된 울림을 주는 이름", focus: ["wood", "water"] },
       { syllables: ["하", "린"], meaning: "맑고 고운 결이 오래 남는 이름", focus: ["water", "metal"] },
+      { syllables: ["은", "서"], meaning: "은은한 기품과 단정함을 품은 이름", focus: ["metal", "wood"] },
+      { syllables: ["연", "지"], meaning: "유연한 지성과 우아한 인상이 조화로운 이름", focus: ["water", "fire"] },
     ],
     modern: [
       { syllables: ["리", "아"], meaning: "짧고 선명한 리듬감이 돋보이는 이름", focus: ["metal", "fire"] },
       { syllables: ["이", "든"], meaning: "부드럽지만 개성이 또렷한 현대적 이름", focus: ["wood", "earth"] },
       { syllables: ["시", "아"], meaning: "세련되고 기억에 잘 남는 인상", focus: ["metal", "fire"] },
+      { syllables: ["주", "연"], meaning: "감각적이면서도 부드러운 잔향을 남기는 이름", focus: ["metal", "water"] },
+      { syllables: ["민", "아"], meaning: "가볍고 또렷한 발음이 돋보이는 현대적 이름", focus: ["water", "fire"] },
     ],
     strong: [
       { syllables: ["채", "원"], meaning: "넓은 포용력과 단단한 중심을 담은 이름", focus: ["wood", "earth"] },
       { syllables: ["다", "온"], meaning: "좋은 기운이 가득 들어오길 바라는 이름", focus: ["fire", "water"] },
       { syllables: ["윤", "슬"], meaning: "빛처럼 반짝이며 강인하게 자라길 바라는 이름", focus: ["water", "metal"] },
+      { syllables: ["민", "서"], meaning: "부드러움 속에서도 중심이 분명한 이름", focus: ["water", "wood"] },
+      { syllables: ["솔", "아"], meaning: "곧고 씩씩한 기운을 선명하게 담아낸 이름", focus: ["wood", "fire"] },
     ],
   },
   boy: {
@@ -77,21 +85,29 @@ const nameTemplates = {
       { syllables: ["도", "윤"], meaning: "반듯하고 온화한 성품을 떠올리게 하는 이름", focus: ["earth", "water"] },
       { syllables: ["시", "우"], meaning: "맑고 부드러운 첫인상이 강점인 이름", focus: ["metal", "water"] },
       { syllables: ["하", "준"], meaning: "건강한 성장과 밝은 기운을 상징하는 이름", focus: ["water", "metal"] },
+      { syllables: ["민", "준"], meaning: "산뜻하고 총명한 인상을 주는 이름", focus: ["water", "metal"] },
+      { syllables: ["연", "우"], meaning: "유연함과 밝은 에너지가 자연스럽게 어우러진 이름", focus: ["water", "earth"] },
     ],
     elegant: [
       { syllables: ["지", "호"], meaning: "넓은 뜻과 깊은 품격을 담아낸 이름", focus: ["earth", "water"] },
       { syllables: ["선", "율"], meaning: "조화롭고 유연한 리더십이 느껴지는 이름", focus: ["metal", "water"] },
       { syllables: ["서", "준"], meaning: "단정하고 신뢰감을 주는 인상", focus: ["wood", "metal"] },
+      { syllables: ["은", "호"], meaning: "차분한 기품과 넓은 시야를 담은 이름", focus: ["metal", "water"] },
+      { syllables: ["주", "한"], meaning: "정돈된 울림과 단단한 품격이 살아 있는 이름", focus: ["metal", "earth"] },
     ],
     modern: [
       { syllables: ["로", "운"], meaning: "세련된 감각과 부드러운 개성을 함께 담은 이름", focus: ["metal", "earth"] },
       { syllables: ["이", "안"], meaning: "국문과 영문 모두 자연스러운 이름", focus: ["wood", "earth"] },
       { syllables: ["유", "찬"], meaning: "생기와 감각을 균형 있게 살린 이름", focus: ["water", "fire"] },
+      { syllables: ["규", "민"], meaning: "간결하면서도 지적인 인상을 남기는 이름", focus: ["metal", "water"] },
+      { syllables: ["진", "우"], meaning: "또렷하고 세련된 이미지가 잘 살아나는 이름", focus: ["metal", "water"] },
     ],
     strong: [
       { syllables: ["건", "우"], meaning: "든든하고 믿음직한 중심을 표현하는 이름", focus: ["earth", "water"] },
       { syllables: ["태", "오"], meaning: "기세와 추진력이 선명한 이름", focus: ["fire", "earth"] },
       { syllables: ["도", "현"], meaning: "지성과 강단이 균형 잡힌 이름", focus: ["earth", "metal"] },
+      { syllables: ["진", "한"], meaning: "곧은 원칙과 무게감을 함께 담은 이름", focus: ["metal", "earth"] },
+      { syllables: ["규", "태"], meaning: "질서감과 힘 있는 추진력을 살린 이름", focus: ["metal", "fire"] },
     ],
   },
   neutral: {
@@ -99,31 +115,39 @@ const nameTemplates = {
       { syllables: ["다", "온"], meaning: "좋은 기운이 모두 다 오길 바라는 이름", focus: ["fire", "water"] },
       { syllables: ["라", "온"], meaning: "밝고 즐거운 에너지를 담은 이름", focus: ["fire", "water"] },
       { syllables: ["하", "람"], meaning: "넓은 품과 따뜻한 기운을 품은 이름", focus: ["water", "earth"] },
+      { syllables: ["별", "온"], meaning: "밝게 빛나는 기운과 따뜻함을 담은 이름", focus: ["metal", "water"] },
+      { syllables: ["수", "아"], meaning: "맑고 가벼운 리듬이 인상적인 이름", focus: ["water", "fire"] },
     ],
     elegant: [
       { syllables: ["시", "온"], meaning: "고요하고 정갈한 울림을 가진 이름", focus: ["metal", "water"] },
       { syllables: ["지", "율"], meaning: "균형과 조화가 잘 드러나는 이름", focus: ["earth", "water"] },
       { syllables: ["해", "온"], meaning: "은은하고 따뜻한 여운을 남기는 이름", focus: ["water", "water"] },
+      { syllables: ["은", "결"], meaning: "매끈하고 정제된 인상을 전하는 이름", focus: ["metal", "water"] },
+      { syllables: ["연", "솔"], meaning: "부드러운 흐름과 곧은 결을 함께 담은 이름", focus: ["water", "wood"] },
     ],
     modern: [
       { syllables: ["루", "아"], meaning: "감각적인 리듬과 부드러운 인상을 가진 이름", focus: ["metal", "fire"] },
       { syllables: ["리", "안"], meaning: "세련되면서도 안정감 있는 이름", focus: ["metal", "earth"] },
       { syllables: ["세", "온"], meaning: "미래지향적이고 맑은 인상을 주는 이름", focus: ["metal", "water"] },
+      { syllables: ["민", "결"], meaning: "단정하고 감각적인 현대적 울림이 돋보이는 이름", focus: ["water", "metal"] },
+      { syllables: ["주", "빈"], meaning: "짧고 세련된 리듬으로 기억에 남는 이름", focus: ["metal", "water"] },
     ],
     strong: [
       { syllables: ["태", "린"], meaning: "또렷한 존재감과 단단함을 담은 이름", focus: ["fire", "metal"] },
       { syllables: ["도", "겸"], meaning: "강단과 품격을 함께 살린 이름", focus: ["earth", "metal"] },
       { syllables: ["하", "겸"], meaning: "부드러움 속에 중심이 분명한 이름", focus: ["water", "metal"] },
+      { syllables: ["솔", "담"], meaning: "곧은 기운과 깊은 무게감을 함께 담은 이름", focus: ["wood", "earth"] },
+      { syllables: ["진", "결"], meaning: "선명한 결단력과 정돈된 힘이 느껴지는 이름", focus: ["metal", "water"] },
     ],
   },
 };
 
 const extensionSyllables = {
-  wood: ["서", "유", "하"],
-  fire: ["아", "나", "태"],
-  earth: ["온", "안", "도"],
-  metal: ["린", "율", "시"],
-  water: ["윤", "우", "해"],
+  wood: ["서", "유", "하", "솔", "주"],
+  fire: ["아", "나", "태", "희", "별"],
+  earth: ["온", "안", "도", "담", "한"],
+  metal: ["린", "율", "시", "규", "은"],
+  water: ["윤", "우", "해", "수", "연"],
 };
 
 const hanjaMap = {
@@ -312,6 +336,76 @@ const hanjaMap = {
     { char: "兼", meaning: "겸할", element: "wood", strokes: 10 },
     { char: "鎌", meaning: "낫", element: "metal", strokes: 18 },
   ],
+  민: [
+    { char: "旻", meaning: "하늘", element: "fire", strokes: 8 },
+    { char: "珉", meaning: "옥돌", element: "metal", strokes: 10 },
+    { char: "敏", meaning: "민첩할", element: "water", strokes: 11 },
+  ],
+  수: [
+    { char: "洙", meaning: "물 이름", element: "water", strokes: 10 },
+    { char: "秀", meaning: "빼어날", element: "metal", strokes: 7 },
+    { char: "樹", meaning: "나무", element: "wood", strokes: 16 },
+  ],
+  연: [
+    { char: "然", meaning: "그럴", element: "fire", strokes: 12 },
+    { char: "姸", meaning: "고울", element: "earth", strokes: 9 },
+    { char: "淵", meaning: "깊을", element: "water", strokes: 12 },
+  ],
+  별: [
+    { char: "星", meaning: "별", element: "metal", strokes: 9 },
+    { char: "昺", meaning: "밝을", element: "fire", strokes: 9 },
+    { char: "彆", meaning: "특별할", element: "wood", strokes: 14 },
+  ],
+  솔: [
+    { char: "率", meaning: "거느릴", element: "metal", strokes: 11 },
+    { char: "松", meaning: "소나무", element: "wood", strokes: 8 },
+    { char: "帥", meaning: "장수", element: "earth", strokes: 9 },
+  ],
+  진: [
+    { char: "鎭", meaning: "진정할", element: "metal", strokes: 18 },
+    { char: "辰", meaning: "별", element: "earth", strokes: 7 },
+    { char: "津", meaning: "나루", element: "water", strokes: 10 },
+  ],
+  규: [
+    { char: "奎", meaning: "별 이름", element: "earth", strokes: 9 },
+    { char: "圭", meaning: "홀", element: "earth", strokes: 6 },
+    { char: "珪", meaning: "서옥", element: "metal", strokes: 10 },
+  ],
+  한: [
+    { char: "瀚", meaning: "넓을", element: "water", strokes: 19 },
+    { char: "翰", meaning: "날개, 문장", element: "wood", strokes: 16 },
+    { char: "韓", meaning: "나라 이름", element: "metal", strokes: 17 },
+  ],
+  담: [
+    { char: "潭", meaning: "깊은 물", element: "water", strokes: 15 },
+    { char: "湛", meaning: "맑을", element: "water", strokes: 12 },
+    { char: "談", meaning: "말씀", element: "metal", strokes: 15 },
+  ],
+  희: [
+    { char: "熙", meaning: "빛날", element: "fire", strokes: 14 },
+    { char: "喜", meaning: "기쁠", element: "fire", strokes: 12 },
+    { char: "僖", meaning: "즐거울", element: "earth", strokes: 14 },
+  ],
+  은: [
+    { char: "恩", meaning: "은혜", element: "earth", strokes: 10 },
+    { char: "垠", meaning: "땅끝", element: "earth", strokes: 9 },
+    { char: "銀", meaning: "은", element: "metal", strokes: 14 },
+  ],
+  결: [
+    { char: "潔", meaning: "깨끗할", element: "water", strokes: 16 },
+    { char: "結", meaning: "맺을", element: "wood", strokes: 12 },
+    { char: "決", meaning: "결단할", element: "water", strokes: 7 },
+  ],
+  주: [
+    { char: "宙", meaning: "우주", element: "earth", strokes: 8 },
+    { char: "周", meaning: "두루", element: "metal", strokes: 8 },
+    { char: "洲", meaning: "섬", element: "water", strokes: 9 },
+  ],
+  빈: [
+    { char: "彬", meaning: "빛날", element: "wood", strokes: 11 },
+    { char: "斌", meaning: "빛날", element: "fire", strokes: 12 },
+    { char: "賓", meaning: "손님", element: "metal", strokes: 14 },
+  ],
 };
 
 const state = {
@@ -458,11 +552,16 @@ function deriveSajuProfile(dateValue, timeValue) {
   };
 }
 
-function buildExtendedName(baseSyllables, syllables, profile, tone) {
+function buildExtendedName(baseSyllables, syllables, profile, tone, variantSeed) {
   if (syllables === "2") return [...baseSyllables];
 
-  const candidates = extensionSyllables[profile.weakestElement] || extensionSyllables[profile.supportElement];
-  const extension = candidates.find((syllable) => !baseSyllables.includes(syllable)) || candidates[0];
+  const candidates = [
+    ...(extensionSyllables[profile.weakestElement] || []),
+    ...(extensionSyllables[profile.supportElement] || []),
+  ];
+  const uniqueCandidates = [...new Set(candidates)].filter((syllable) => !baseSyllables.includes(syllable));
+  const fallbackCandidates = uniqueCandidates.length ? uniqueCandidates : [...new Set(candidates)];
+  const extension = fallbackCandidates[variantSeed % fallbackCandidates.length];
 
   if (tone === "strong" || tone === "modern") {
     return [baseSyllables[0], extension, baseSyllables[1]];
@@ -499,8 +598,9 @@ function buildRecommendations(formData, profile) {
   const rotation = profile.signature % templates.length;
   const rotated = templates.map((_, index) => templates[(index + rotation) % templates.length]);
 
-  return rotated.map((template, index) => {
-    const displaySyllables = buildExtendedName(template.syllables, syllables, profile, tone);
+  const rawRecommendations = rotated.map((template, index) => {
+    const variantSeed = profile.signature + index;
+    const displaySyllables = buildExtendedName(template.syllables, syllables, profile, tone, variantSeed);
     const preferredElements = getPreferredElements(template, profile);
     const slots = displaySyllables.map((syllable) => ({
       syllable,
@@ -526,6 +626,17 @@ function buildRecommendations(formData, profile) {
       recommendationLabel: index + 1,
     };
   }).sort((left, right) => right.balanceScore - left.balanceScore);
+
+  const seenNames = new Set();
+
+  return rawRecommendations.filter((item) => {
+    if (seenNames.has(item.displayName)) {
+      return false;
+    }
+
+    seenNames.add(item.displayName);
+    return true;
+  });
 }
 
 function renderSummary(formData, profile) {

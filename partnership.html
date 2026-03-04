@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아기 작명소 | 제휴 문의</title>
+  <link href="/style.css" rel="stylesheet" />
+</head>
+<body class="partnership-page">
+  <div class="page-shell popup-shell">
+    <section class="panel popup-panel">
+      <div class="popup-topbar">
+        <div class="panel-head">
+          <p class="section-kicker">Partnership</p>
+          <h2>제휴 문의</h2>
+        </div>
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-pressed="false"
+          aria-label="다크 모드로 전환"
+        >
+          <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+        </button>
+      </div>
+
+      <p class="contact-copy">
+        브랜드 제휴, 콘텐츠 협업, B2B 도입 문의를 남겨주시면 확인 후 회신드립니다.
+      </p>
+
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/meelbvlw"
+        method="POST"
+        accept-charset="UTF-8"
+      >
+        <input type="hidden" name="_subject" value="아기 작명소 제휴 문의" />
+
+        <div class="field-grid">
+          <label>
+            회사명
+            <input name="company" type="text" placeholder="예: ABC Studio" required />
+          </label>
+
+          <label>
+            담당자명
+            <input name="name" type="text" placeholder="예: 홍길동" required />
+          </label>
+        </div>
+
+        <div class="field-grid">
+          <label>
+            이메일
+            <input name="email" type="email" placeholder="contact@example.com" required />
+          </label>
+
+          <label>
+            문의 유형
+            <select name="inquiryType" required>
+              <option value="brand-partnership">브랜드 제휴</option>
+              <option value="content-collaboration">콘텐츠 협업</option>
+              <option value="b2b-introduction">B2B 도입</option>
+              <option value="other">기타</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          문의 내용
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="협업 목적, 기대 효과, 일정, 연락 가능한 방법을 남겨주세요."
+            required
+          ></textarea>
+        </label>
+
+        <button type="submit" class="primary-button">제휴 문의 보내기</button>
+      </form>
+    </section>
+  </div>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+</html>

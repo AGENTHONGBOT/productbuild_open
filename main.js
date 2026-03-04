@@ -535,6 +535,7 @@ const recommendations = document.querySelector("#recommendations");
 const hanjaPanel = document.querySelector("#hanjaPanel");
 const form = document.querySelector("#naming-form");
 const themeToggle = document.querySelector("#theme-toggle");
+const partnershipTrigger = document.querySelector("#partnership-trigger");
 
 const THEME_STORAGE_KEY = "name-atelier-theme";
 
@@ -542,6 +543,11 @@ function applyTheme(theme) {
   const nextTheme = theme === "dark" ? "dark" : "light";
 
   document.documentElement.dataset.theme = nextTheme;
+
+  if (!themeToggle) {
+    return;
+  }
+
   themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
   themeToggle.setAttribute("aria-label", nextTheme === "dark" ? "화이트 모드로 전환" : "다크 모드로 전환");
   themeToggle.innerHTML = `<span class="theme-toggle-icon" aria-hidden="true">${nextTheme === "dark" ? "☾" : "☀"}</span>`;
@@ -553,6 +559,10 @@ function initializeTheme() {
   const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
 
   applyTheme(initialTheme);
+
+  if (!themeToggle) {
+    return;
+  }
 
   themeToggle.addEventListener("click", () => {
     const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
@@ -578,6 +588,10 @@ function setDefaultBirthInputs() {
   const now = new Date();
   const dateInput = document.querySelector("#birthDate");
   const timeInput = document.querySelector("#birthTime");
+
+  if (!dateInput || !timeInput) {
+    return;
+  }
 
   if (!dateInput.value) {
     dateInput.value = now.toISOString().slice(0, 10);
@@ -974,6 +988,10 @@ function renderHanjaPanel() {
 }
 
 function renderAll(formData) {
+  if (!summary || !analysis || !recommendations || !hanjaPanel) {
+    return;
+  }
+
   state.lastName = formData.get("lastName").trim();
   state.sajuProfile = deriveSajuProfile(formData.get("birthDate"), formData.get("birthTime"));
   state.recommendations = buildRecommendations(formData, state.sajuProfile);
@@ -986,48 +1004,73 @@ function renderAll(formData) {
   renderHanjaPanel();
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  renderAll(new FormData(form));
-});
+function initializePartnershipPopup() {
+  if (!partnershipTrigger) {
+    return;
+  }
 
-recommendations.addEventListener("click", (event) => {
-  const card = event.target.closest("[data-name-index]");
+  partnershipTrigger.addEventListener("click", () => {
+    const popup = window.open(
+      "/partnership.html",
+      "partnershipInquiry",
+      "popup=yes,width=720,height=860,resizable=yes,scrollbars=yes"
+    );
 
-  if (!card) return;
+    if (popup) {
+      popup.focus();
+      return;
+    }
 
-  state.selectedNameIndex = Number(card.dataset.nameIndex);
-  initializeHanjaSelection(getSelectedRecommendation());
-  renderRecommendations();
-  renderHanjaPanel();
-});
-
-recommendations.addEventListener("keydown", (event) => {
-  if (event.key !== "Enter" && event.key !== " ") return;
-
-  const card = event.target.closest("[data-name-index]");
-
-  if (!card) return;
-
-  event.preventDefault();
-  state.selectedNameIndex = Number(card.dataset.nameIndex);
-  initializeHanjaSelection(getSelectedRecommendation());
-  renderRecommendations();
-  renderHanjaPanel();
-});
-
-hanjaPanel.addEventListener("click", (event) => {
-  const option = event.target.closest("[data-slot-index]");
-
-  if (!option) return;
-
-  const slotIndex = Number(option.dataset.slotIndex);
-  const optionIndex = Number(option.dataset.optionIndex);
-
-  state.selectedHanjaBySlot[slotIndex] = optionIndex;
-  renderHanjaPanel();
-});
+    window.location.href = "/partnership.html";
+  });
+}
 
 initializeTheme();
-setDefaultBirthInputs();
-renderAll(new FormData(form));
+initializePartnershipPopup();
+
+if (form && summary && analysis && recommendations && hanjaPanel) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    renderAll(new FormData(form));
+  });
+
+  recommendations.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-name-index]");
+
+    if (!card) return;
+
+    state.selectedNameIndex = Number(card.dataset.nameIndex);
+    initializeHanjaSelection(getSelectedRecommendation());
+    renderRecommendations();
+    renderHanjaPanel();
+  });
+
+  recommendations.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    const card = event.target.closest("[data-name-index]");
+
+    if (!card) return;
+
+    event.preventDefault();
+    state.selectedNameIndex = Number(card.dataset.nameIndex);
+    initializeHanjaSelection(getSelectedRecommendation());
+    renderRecommendations();
+    renderHanjaPanel();
+  });
+
+  hanjaPanel.addEventListener("click", (event) => {
+    const option = event.target.closest("[data-slot-index]");
+
+    if (!option) return;
+
+    const slotIndex = Number(option.dataset.slotIndex);
+    const optionIndex = Number(option.dataset.optionIndex);
+
+    state.selectedHanjaBySlot[slotIndex] = optionIndex;
+    renderHanjaPanel();
+  });
+
+  setDefaultBirthInputs();
+  renderAll(new FormData(form));
+}

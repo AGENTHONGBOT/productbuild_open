@@ -206,6 +206,11 @@ body::after {
   animation: rise 1.25s ease-out both;
 }
 
+.contact-panel-compact {
+  display: grid;
+  gap: 18px;
+}
+
 .contact-copy {
   margin: 0 0 18px;
   max-width: 720px;
@@ -213,9 +218,40 @@ body::after {
   line-height: 1.7;
 }
 
+.contact-launch {
+  width: fit-content;
+  min-width: 220px;
+  margin-top: 0;
+  padding-inline: 24px;
+}
+
 .contact-form {
   display: grid;
   gap: 14px;
+}
+
+.partnership-page .page-shell {
+  padding-top: 24px;
+}
+
+.popup-shell {
+  width: min(760px, calc(100% - 24px));
+}
+
+.popup-panel {
+  animation: rise 0.45s ease-out both;
+}
+
+.popup-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.popup-topbar .panel-head {
+  margin-bottom: 0;
 }
 
 .panel-head {
@@ -605,6 +641,10 @@ textarea {
   .contact-panel {
     margin-top: 16px;
   }
+
+  .popup-shell {
+    width: min(100% - 20px, 100%);
+  }
 }
 
 @media (max-width: 640px) {
@@ -672,6 +712,11 @@ textarea {
     gap: 12px;
   }
 
+  .contact-launch {
+    width: 100%;
+    min-width: 0;
+  }
+
   label {
     gap: 6px;
     font-size: 0.92rem;
@@ -707,6 +752,10 @@ textarea {
     margin-left: auto;
     width: 48px;
     min-height: 48px;
+  }
+
+  .popup-topbar {
+    align-items: center;
   }
 
   .summary-card,
@@ -779,6 +828,10 @@ textarea {
   }
 
   .hero-topbar {
+    gap: 10px;
+  }
+
+  .popup-topbar {
     gap: 10px;
   }
 

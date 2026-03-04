@@ -215,6 +215,11 @@ body::after {
   animation: rise 1.25s ease-out both;
 }
 
+.comments-panel {
+  margin-top: 20px;
+  animation: rise 1.35s ease-out both;
+}
+
 .contact-launch {
   width: fit-content;
   min-width: 180px;
@@ -635,7 +640,8 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .contact-action-bar {
+  .contact-action-bar,
+  .comments-panel {
     margin-top: 16px;
   }
 

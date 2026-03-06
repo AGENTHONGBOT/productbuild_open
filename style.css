@@ -184,6 +184,24 @@ body::after {
   margin-top: 20px;
 }
 
+.ad-section {
+  margin-top: 20px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+.ad-note {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.ad-unit {
+  min-height: 120px;
+}
+
 .panel {
   padding: 24px;
   border: 1px solid var(--line);
@@ -220,11 +238,43 @@ body::after {
   animation: rise 1.35s ease-out both;
 }
 
+.comment-intro {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .contact-launch {
   width: fit-content;
   min-width: 180px;
   margin-top: 0;
   padding-inline: 24px;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+.popup-footer {
+  margin-top: 14px;
+  justify-content: flex-start;
 }
 
 .contact-form {
@@ -285,7 +335,8 @@ label {
 input,
 select,
 textarea,
-.primary-button {
+.primary-button,
+.secondary-button {
   width: 100%;
   min-width: 0;
   border-radius: 18px;
@@ -361,6 +412,30 @@ textarea {
 .primary-button:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 18px 34px rgba(185, 111, 62, 0.32);
+}
+
+.secondary-button {
+  min-height: 48px;
+  margin-top: 4px;
+  padding: 12px 16px;
+  border: 1px solid rgba(123, 91, 63, 0.24);
+  background: var(--control-fill);
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(185, 111, 62, 0.4);
+}
+
+.secondary-button:disabled {
+  opacity: 0.72;
+  cursor: default;
+  transform: none;
 }
 
 .summary-card {
@@ -635,6 +710,10 @@ textarea {
     gap: 16px;
   }
 
+  .ad-section {
+    margin-top: 16px;
+  }
+
   .hanja-grid,
   .element-meter {
     grid-template-columns: 1fr;
@@ -742,6 +821,11 @@ textarea {
   .primary-button {
     min-height: 52px;
     padding: 14px 16px;
+    border-radius: 16px;
+  }
+
+  .secondary-button {
+    min-height: 46px;
     border-radius: 16px;
   }
 
@@ -884,7 +968,8 @@ textarea {
   }
 
   .theme-toggle,
-  .primary-button {
+  .primary-button,
+  .secondary-button {
     font-size: 0.95rem;
   }
 

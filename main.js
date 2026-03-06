@@ -536,6 +536,9 @@ const hanjaPanel = document.querySelector("#hanjaPanel");
 const form = document.querySelector("#naming-form");
 const themeToggle = document.querySelector("#theme-toggle");
 const partnershipTrigger = document.querySelector("#partnership-trigger");
+const adUnits = Array.from(document.querySelectorAll(".ad-unit"));
+const commentsLoadButton = document.querySelector("#comments-load-button");
+const disqusContainer = document.querySelector("#disqus_thread");
 
 const THEME_STORAGE_KEY = "name-atelier-theme";
 
@@ -554,7 +557,12 @@ function applyTheme(theme) {
 }
 
 function initializeTheme() {
-  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  let savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  } catch (error) {
+    savedTheme = null;
+  }
   const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
 
@@ -567,9 +575,75 @@ function initializeTheme() {
   themeToggle.addEventListener("click", () => {
     const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
 
-    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch (error) {
+      // Ignore storage write failures (private mode or blocked storage).
+    }
     applyTheme(nextTheme);
   });
+}
+
+function initializeAds() {
+  if (!adUnits.length) {
+    return;
+  }
+
+  window.adsbygoogle = window.adsbygoogle || [];
+
+  adUnits.forEach((unit) => {
+    try {
+      window.adsbygoogle.push({});
+      unit.dataset.adInitialized = "true";
+    } catch (error) {
+      unit.dataset.adInitialized = "false";
+    }
+  });
+}
+
+function loadDisqus() {
+  if (!disqusContainer || disqusContainer.dataset.loaded === "true") {
+    return;
+  }
+
+  const d = document;
+  const s = d.createElement("script");
+  s.src = "https://productcreate.disqus.com/embed.js";
+  s.setAttribute("data-timestamp", String(+new Date()));
+  (d.head || d.body).appendChild(s);
+  disqusContainer.dataset.loaded = "true";
+
+  if (commentsLoadButton) {
+    commentsLoadButton.disabled = true;
+    commentsLoadButton.textContent = "댓글 로딩 중...";
+  }
+}
+
+function initializeDisqusLazy() {
+  if (!disqusContainer) {
+    return;
+  }
+
+  if (commentsLoadButton) {
+    commentsLoadButton.addEventListener("click", loadDisqus);
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadDisqus();
+        currentObserver.disconnect();
+      });
+    },
+    { rootMargin: "280px 0px" }
+  );
+
+  observer.observe(disqusContainer);
 }
 
 function escapeHtml(value) {
@@ -1011,7 +1085,7 @@ function initializePartnershipPopup() {
 
   partnershipTrigger.addEventListener("click", () => {
     const popup = window.open(
-      "/partnership.html",
+      "partnership.html",
       "partnershipInquiry",
       "popup=yes,width=720,height=860,resizable=yes,scrollbars=yes"
     );
@@ -1021,11 +1095,13 @@ function initializePartnershipPopup() {
       return;
     }
 
-    window.location.href = "/partnership.html";
+    window.location.href = "partnership.html";
   });
 }
 
 initializeTheme();
+initializeAds();
+initializeDisqusLazy();
 initializePartnershipPopup();
 
 if (form && summary && analysis && recommendations && hanjaPanel) {

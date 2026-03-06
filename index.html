@@ -30,6 +30,38 @@
       "description": "출생 정보와 원하는 분위기를 기반으로 이름과 한자 조합을 추천하는 작명 웹사이트"
     }
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "이 사이트는 사주 전문가의 최종 감정 결과를 제공하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 본 서비스는 참고용 이름 추천 도구이며 법적/전문 감정 서비스를 대체하지 않습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "입력한 개인정보는 서버에 저장되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "이름 추천 입력값은 브라우저에서 처리되며, 정책 변경 시 개인정보처리방침 페이지에 공지합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "광고가 콘텐츠보다 더 많아지지 않도록 관리하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 핵심 콘텐츠를 우선하고 광고는 보조 정보 수준으로 제한하여 사용자 경험을 해치지 않도록 운영합니다."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <div class="page-shell">
@@ -51,6 +83,12 @@
         태어난 날짜와 시간, 성별, 종교, 원하는 분위기를 선택하면
         감성과 의미를 함께 담은 이름 후보를 제안합니다.
       </p>
+      <nav class="quick-nav" aria-label="사이트 주요 메뉴">
+        <a href="about.html">서비스 소개</a>
+        <a href="guide.html">작명 가이드</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+      </nav>
     </header>
     <section class="ad-section" aria-label="광고 영역">
       <p class="ad-note">광고는 서비스 운영에 활용됩니다.</p>
@@ -162,6 +200,47 @@
       <button type="button" id="comments-load-button" class="secondary-button">댓글 불러오기</button>
       <div id="disqus_thread"></div>
     </section>
+    <section class="panel quality-panel">
+      <div class="panel-head">
+        <p class="section-kicker">Guide</p>
+        <h2>이름 추천 결과를 해석하는 방법</h2>
+      </div>
+      <div class="policy-stack">
+        <article class="policy-block">
+          <h3>1. 의미와 발음의 균형</h3>
+          <p>좋은 이름은 뜻만 좋은 것이 아니라 실제 생활에서 자주 부르는 발음의 자연스러움이 함께 맞아야 합니다. 추천 결과는 의미, 어감, 오행 보완 포인트를 함께 제시해 한쪽으로 치우치지 않도록 설계되어 있습니다.</p>
+        </article>
+        <article class="policy-block">
+          <h3>2. 한자 선택의 일관성</h3>
+          <p>동일한 음절이라도 한자 조합에 따라 인상이 달라질 수 있습니다. 한자 패널에서는 음절별 대안을 비교하고 획수와 기운을 함께 보며 최종 조합을 결정할 수 있습니다.</p>
+        </article>
+        <article class="policy-block">
+          <h3>3. 최종 결정 전 체크리스트</h3>
+          <p>가족이 자주 부르는 호칭, 영문 표기 편의성, 서류 작성 시 가독성, 기존 형제자매 이름과의 조화를 함께 점검한 뒤 결정하는 것을 권장합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel quality-panel">
+      <div class="panel-head">
+        <p class="section-kicker">FAQ</p>
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <div class="policy-stack">
+        <article class="policy-block">
+          <h3>무료로 이용 가능한가요?</h3>
+          <p>현재 기본 추천 기능은 무료로 제공됩니다. 운영 비용은 제한적인 광고 수익과 제휴 문의를 통해 충당합니다.</p>
+        </article>
+        <article class="policy-block">
+          <h3>의학적/법적 조언을 제공하나요?</h3>
+          <p>아니요. 본 사이트는 작명 참고 정보 제공을 위한 도구이며 의학, 법률, 세무 등 전문 자문을 제공하지 않습니다.</p>
+        </article>
+        <article class="policy-block">
+          <h3>광고 위치는 어떻게 관리하나요?</h3>
+          <p>콘텐츠 읽기 흐름을 해치지 않도록 주요 입력/결과 영역 사이에만 제한적으로 배치하고, 클릭 유도 문구를 사용하지 않습니다.</p>
+        </article>
+      </div>
+    </section>
 
     <div class="contact-action-bar">
       <button type="button" id="partnership-trigger" class="primary-button contact-launch">
@@ -169,7 +248,15 @@
       </button>
     </div>
     <footer class="site-footer">
+      <span>최종 업데이트: 2026-03-06</span>
+      <span>·</span>
+      <a href="about.html">서비스 소개</a>
+      <span>·</span>
+      <a href="guide.html">작명 가이드</a>
+      <span>·</span>
       <a href="privacy.html">개인정보처리방침</a>
+      <span>·</span>
+      <a href="terms.html">이용약관</a>
       <span>·</span>
       <a href="partnership.html">문의하기</a>
     </footer>

@@ -6,9 +6,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://agenthongbot.github.io/productbuild_open/partnership.html</loc>
+    <loc>https://agenthongbot.github.io/productbuild_open/about.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agenthongbot.github.io/productbuild_open/guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agenthongbot.github.io/productbuild_open/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://agenthongbot.github.io/productbuild_open/privacy.html</loc>

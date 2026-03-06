@@ -177,6 +177,26 @@ body::after {
   line-height: 1.7;
 }
 
+.quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.quick-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--control-fill);
+  font-size: 0.88rem;
+}
+
 .layout {
   display: grid;
   grid-template-columns: minmax(320px, 0.95fr) minmax(320px, 1.05fr);
@@ -275,6 +295,34 @@ body::after {
 .popup-footer {
   margin-top: 14px;
   justify-content: flex-start;
+}
+
+.quality-panel {
+  margin-top: 20px;
+}
+
+.policy-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.policy-block {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(123, 91, 63, 0.14);
+  background: var(--panel-soft);
+}
+
+.policy-block h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Iropke Batang", "Noto Serif KR", serif;
+}
+
+.policy-block p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .contact-form {
@@ -724,6 +772,10 @@ textarea {
     margin-top: 16px;
   }
 
+  .quality-panel {
+    margin-top: 16px;
+  }
+
   .popup-shell {
     width: min(100% - 20px, 100%);
   }
@@ -762,7 +814,8 @@ textarea {
   .analysis-card p,
   .hanja-head p,
   .hanja-preview p,
-  .name-card p {
+  .name-card p,
+  .policy-block p {
     font-size: 0.95rem;
     line-height: 1.6;
   }

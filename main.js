@@ -536,6 +536,7 @@ const hanjaPanel = document.querySelector("#hanjaPanel");
 const form = document.querySelector("#naming-form");
 const themeToggle = document.querySelector("#theme-toggle");
 const partnershipTrigger = document.querySelector("#partnership-trigger");
+const mainAdSection = document.querySelector("#main-ad-section");
 const adUnits = Array.from(document.querySelectorAll(".ad-unit"));
 const commentsLoadButton = document.querySelector("#comments-load-button");
 const disqusContainer = document.querySelector("#disqus_thread");
@@ -589,9 +590,18 @@ function initializeAds() {
     return;
   }
 
+  const hasUninitializedUnit = adUnits.some((unit) => unit.dataset.adInitialized !== "true");
+  if (!hasUninitializedUnit) {
+    return;
+  }
+
   window.adsbygoogle = window.adsbygoogle || [];
 
   adUnits.forEach((unit) => {
+    if (unit.dataset.adInitialized === "true") {
+      return;
+    }
+
     try {
       window.adsbygoogle.push({});
       unit.dataset.adInitialized = "true";
@@ -1076,6 +1086,11 @@ function renderAll(formData) {
   renderAnalysis(state.sajuProfile);
   renderRecommendations();
   renderHanjaPanel();
+
+  if (mainAdSection && state.recommendations.length > 0) {
+    mainAdSection.hidden = false;
+    initializeAds();
+  }
 }
 
 function initializePartnershipPopup() {
@@ -1100,7 +1115,6 @@ function initializePartnershipPopup() {
 }
 
 initializeTheme();
-initializeAds();
 initializeDisqusLazy();
 initializePartnershipPopup();
 
